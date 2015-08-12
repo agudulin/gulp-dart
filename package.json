@@ -1,6 +1,6 @@
 {
   "name": "gulp-dart",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Compile Dart to JavaScript",
   "main": "index.js",
   "scripts": {
@@ -14,6 +14,7 @@
   "author": "Alexander Gudulin <alexandr.gudulin@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "gulp-util": "^3.0.6",
     "object-assign": "^3.0.0",
     "through2": "^2.0.0"
   },

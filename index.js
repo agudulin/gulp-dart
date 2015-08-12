@@ -1,3 +1,4 @@
+var gutil = require("gulp-util");
 var objectAssign = require("object-assign");
 var spawn = require("child_process").spawn;
 var through = require("through2");
@@ -24,7 +25,9 @@ var plugin = function(options) {
     if (file.isNull()) {
       return cb(null, file);
     }
-    // TODO: return plugin error if file.isStream()
+    if (file.isStream()) {
+      return cb(new gutil.PluginError("gulp-dart", "Streaming not supported"));
+    }
 
     var args = Object.keys(options).filter(function(key) {
       return options[key];
@@ -35,13 +38,13 @@ var plugin = function(options) {
     var child = spawn("dart2js", [file.path, args, "-o", file.path + ".js"]);
 
     child.stdout.on("data", function(data) {
-      console.log("gulp-dart:", JSON.stringify(data));
+      gutil.log("gulp-dart:", data.toString("utf-8"));
     });
     child.stderr.on("data", function(data) {
-      console.error("gulp-dart:", JSON.stringify(data));
+      gutil.log("gulp-dart:", data.toString("utf-8"));
     });
     child.on("exit", function(code) {
-      console.log("gulp-dart:", code);
+      gutil.log("gulp-dart:", code);
       cb(null, file);
     });
 
