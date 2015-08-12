@@ -35,7 +35,10 @@ var plugin = function(options) {
       return "--" + key;
     });
 
-    var child = spawn("dart2js", [file.path, args, "-o", file.path + ".js"]);
+    args.unshift(file.path);
+    args.push("-o", file.path + ".js");
+
+    var child = spawn("dart2js", args);
 
     child.stdout.on("data", function(data) {
       gutil.log("gulp-dart:", data.toString("utf-8"));
