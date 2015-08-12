@@ -1,0 +1,29 @@
+{
+  "name": "gulp-dart",
+  "version": "0.0.1",
+  "description": "Compile Dart to JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "dart",
+    "javascript",
+    "gulp"
+  ],
+  "author": "Alexander Gudulin <alexandr.gudulin@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "object-assign": "^3.0.0",
+    "through2": "^2.0.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agudulin/gulp-dart.git"
+  },
+  "bugs": {
+    "url": "https://github.com/agudulin/gulp-dart/issues"
+  },
+  "homepage": "https://github.com/agudulin/gulp-dart#readme"
+}
