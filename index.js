@@ -2,9 +2,20 @@ var gutil = require("gulp-util");
 var objectAssign = require("object-assign");
 var spawn = require("child_process").spawn;
 var through = require("through2");
+var path = require("path");
+var vinylFile = require("vinyl-file");
+
+function prefixOptions(options) {
+  return Object.keys(options).filter(function(key) {
+    return options[key];
+  }).map(function(key) {
+    return "--" + key;
+  });
+}
 
 var plugin = function(options) {
   options = objectAssign({
+    "dest": null,
     "checked": false,
     "minify": false,
     "verbose": false,
@@ -22,22 +33,16 @@ var plugin = function(options) {
     "show-package-warnings": false
   }, options);
 
-  return through.obj(function(file, enc, cb) {
-    if (file.isNull()) {
-      return cb(null, file);
-    }
-    if (file.isStream()) {
-      return cb(new gutil.PluginError("gulp-dart", "Streaming not supported"));
-    }
+  return through.obj(function(file, encoding, done) {
+    var dest = options.dest || path.dirname(file.path);
+    // remove the dest option because we want to pass this object to dart2js as arguments
+    delete options.dest;
 
-    var args = Object.keys(options).filter(function(key) {
-      return options[key];
-    }).map(function(key) {
-      return "--" + key;
-    });
+    var args = prefixOptions(options);
+    var destFile = path.join(dest, path.basename(file.path) + ".js");
 
     args.unshift(file.path);
-    args.push("-o", file.path + ".js");
+    args.push("-o", destFile);
 
     var child = spawn("dart2js", args);
 
@@ -49,7 +54,7 @@ var plugin = function(options) {
     });
     child.on("exit", function(code) {
       gutil.log("gulp-dart:", code);
-      cb(null, file);
+      done(null, vinylFile.readSync(destFile));
     });
 
   });

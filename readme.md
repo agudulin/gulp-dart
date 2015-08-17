@@ -19,7 +19,10 @@ var dart = require("gulp-dart");
 gulp.task("default", function() {
   return gulp
     .src('web/*.dart')
-    .pipe(dart({ "minify": true }));
+    .pipe(dart({
+      "dest": "./dist"
+      "minify": true
+    }));
 });
 ```
 
