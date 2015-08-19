@@ -33,13 +33,14 @@ var plugin = function(options) {
     "show-package-warnings": false
   }, options);
 
-  return through.obj(function(file, encoding, done) {
-    var dest = options.dest || path.dirname(file.path);
-    // remove the dest option because we want to pass this object to dart2js as arguments
-    delete options.dest;
+  var dest = options.dest;
+  // remove the dest option because we want to pass this object to dart2js as arguments
+  delete options.dest;
 
+  return through.obj(function(file, encoding, done) {
     var args = prefixOptions(options);
-    var destFile = path.join(dest, path.basename(file.path) + ".js");
+    var destDir = dest || path.dirname(file.path);
+    var destFile = path.join(destDir, path.basename(file.path) + ".js");
 
     args.unshift(file.path);
     args.push("-o", destFile);
