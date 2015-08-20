@@ -1,6 +1,6 @@
 {
   "name": "gulp-dart",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Compile Dart to JavaScript",
   "main": "index.js",
   "scripts": {
@@ -15,7 +15,7 @@
   "license": "MIT",
   "dependencies": {
     "gulp-util": "^3.0.6",
-    "object-assign": "^3.0.0",
+    "object-assign": "^4.0.1",
     "path": "^0.11.14",
     "through2": "^2.0.0",
     "vinyl-file": "^1.2.1"

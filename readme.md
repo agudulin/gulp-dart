@@ -1,5 +1,8 @@
 # gulp-dart
 
+[![NPM version][npm-image]][npm-url]
+[![Dependency Status][depstat-image]][depstat-url]
+
 > Compile Dart to JavaScript using [dart2js](https://www.dartlang.org/tools/dart2js/)
 
 
@@ -48,3 +51,9 @@ show-package-warnings    // Show warnings and hints generated from packages
 ## License
 
 MIT © [Alexander Gudulin](http://gudulin.com)
+
+[npm-url]: https://npmjs.org/package/gulp-dart
+[npm-image]: https://img.shields.io/npm/v/gulp-dart.svg?style=flat-square
+
+[depstat-url]: https://david-dm.org/agudulin/gulp-dart
+[depstat-image]: https://david-dm.org/agudulin/gulp-dart.svg?style=flat-square
