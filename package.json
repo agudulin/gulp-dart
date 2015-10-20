@@ -14,7 +14,7 @@
   "author": "Alexander Gudulin <alexandr.gudulin@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "gulp-util": "3.0.6",
+    "gulp-util": "3.0.7",
     "object-assign": "4.0.1",
     "path": "0.12.7",
     "through2": "2.0.0",
