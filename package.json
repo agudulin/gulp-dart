@@ -1,6 +1,6 @@
 {
   "name": "gulp-dart",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Compile Dart to JavaScript",
   "main": "index.js",
   "scripts": {
