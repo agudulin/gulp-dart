@@ -23,8 +23,8 @@ gulp.task("default", function() {
   return gulp
     .src('web/*.dart')
     .pipe(dart({
-        "dest": "./dist",
-        "minify": "true"
+      "dest": "./dist",
+      "minify": "true"
     }))
   .pipe(gulp.dest('./'))
 });
