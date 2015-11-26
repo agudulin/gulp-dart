@@ -26,7 +26,7 @@ gulp.task("default", function() {
       "dest": "./dist",
       "minify": "true"
     }))
-  .pipe(gulp.dest('./'))
+    .pipe(gulp.dest('./'))
 });
 ```
 
