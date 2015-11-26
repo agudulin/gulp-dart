@@ -5,6 +5,11 @@
 
 > Compile Dart to JavaScript using [dart2js](https://www.dartlang.org/tools/dart2js/)
 
+## Preinstall
+
+You need install `dartsdk` at first. Go to [https://www.dartlang.org/downloads/](https://www.dartlang.org/downloads/) for more information.
+
+If you already have it installed and got ENOENT error then read [this thread](https://github.com/agudulin/gulp-dart/issues/6).
 
 ## Install
 
