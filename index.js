@@ -1,5 +1,4 @@
 var gutil = require("gulp-util");
-var objectAssign = require("object-assign");
 var spawn = require("child_process").spawn;
 var through = require("through2");
 var path = require("path");
@@ -14,7 +13,7 @@ function prefixOptions(options) {
 }
 
 var plugin = function(options) {
-  options = objectAssign({
+  options = Object.assign({
     "dest": null,
     "checked": false,
     "minify": false,
