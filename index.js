@@ -45,7 +45,7 @@ var plugin = function(options) {
     args.unshift(file.path);
     args.push("-o", destFile);
 
-    var child = spawn("dart2js", args);
+    var child = process.platform === 'win32' ? spawn("dart2js", args, { shell: true }) : spawn("dart2js", args);
 
     child.stdout.on("data", function(data) {
       gutil.log("gulp-dart:", data.toString("utf-8"));
